@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/MorpTech/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MorpTech</title>
+    <script>
+      // Redirect 404s to the index page with the original URL path preserved
+      var segmentCount = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          '/MorpTech/#' +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + segmentCount)
+            .join('/') +
+          (/\/$/.test(l.pathname) ? '' : '/') +
+          (l.search ? '?' + l.search.slice(1) : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
